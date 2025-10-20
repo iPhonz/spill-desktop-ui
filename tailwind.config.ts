@@ -52,7 +52,7 @@ const config: Config = {
         elev: '0 8px 24px rgba(0,0,0,0.35)',
       },
       fontFamily: {
-        sans: ['Inter', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['SF Pro Text', 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       fontSize: {
         hero: ['28px', { lineHeight: '1.2', fontWeight: '700' }],
