@@ -1,3 +1,6 @@
+// Legacy types from Phase 1 - keeping for backwards compatibility
+// New types are in lib/supabase/types.ts
+
 export interface Post {
   id: string;
   author: {
