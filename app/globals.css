@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color tokens */
+    --bg-app: #0d0d0e;
+    --panel-base: #1b1c1e;
+    --panel-elev: #212225;
+    --line-divider: #2a2b2e;
+    --line-border: #2a2b2e;
+    --sidebar-bg: #be3b5e;
+    --sidebar-icon: #ffffff;
+    --accent-orange: #ff6a00;
+    --accent-yellow: #ffda3e;
+    --accent-yellow-text: #151517;
+    --accent-primary: #3a1b49;
+    --chip-bg: #2b2c2f;
+    --chip-text: #d9d9dc;
+    --text-primary: #f5f5f6;
+    --text-secondary: #babbc0;
+    --text-tertiary: #8d8f95;
+    --text-inverse: #0e0e10;
+    --focus: #8b5cf6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-bg-app text-text-primary;
+    font-family: Inter, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Text utility classes */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Animation */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
