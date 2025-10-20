@@ -14,6 +14,7 @@ This is a production-ready Next.js application that implements the SPILL desktop
 - **Next.js 14+** with App Router and React Server Components
 - **TypeScript** for complete type safety
 - **Tailwind CSS** with custom design tokens matching SPILL's brand
+- **SF Pro** font family for authentic Apple-style typography
 - **Responsive 3-column layout** that adapts seamlessly to mobile
 - **Accessible components** with keyboard navigation and ARIA attributes
 - **Static data** (no backend integration in Phase 1)
@@ -44,6 +45,7 @@ This is a production-ready Next.js application that implements the SPILL desktop
 
 ### Design System
 - ✅ Custom Tailwind tokens matching spec exactly
+- ✅ **SF Pro** font family (Text & Display variants)
 - ✅ Color palette: dark backgrounds (#0D0D0E), pink sidebar (#BE3B5E), orange accents (#FF6A00)
 - ✅ Typography: Hero (28px), H2 (18px), Body (15px), Meta (12.5px), Button (14.5px)
 - ✅ Spacing: 8pt system, consistent 16-24px padding
@@ -131,7 +133,7 @@ pnpm lint
 ```
 spill-desktop-ui/
 ├── app/
-│   ├── layout.tsx          # Root layout with Inter font & metadata
+│   ├── layout.tsx          # Root layout with SF Pro font
 │   ├── page.tsx            # Main desktop page component
 │   └── globals.css         # Global styles and CSS variables
 ├── components/
@@ -181,6 +183,36 @@ spill-desktop-ui/
 
 All design tokens are configured in `tailwind.config.ts` and match the SPILL design system exactly:
 
+### Typography
+
+The app uses **SF Pro** font family for a clean, modern Apple-style aesthetic:
+
+```typescript
+fontFamily: {
+  sans: [
+    'SF Pro Text',
+    'SF Pro Display',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif'
+  ],
+}
+
+fontSize: {
+  hero: ['28px', { lineHeight: '1.2', fontWeight: '700' }],
+  h2: ['18px', { lineHeight: '1.3', fontWeight: '600' }],
+  body: ['15px', { lineHeight: '1.45', fontWeight: '400' }],
+  meta: ['12.5px', { lineHeight: '1.3', fontWeight: '500' }],
+  btn: ['14.5px', { lineHeight: '1.2', fontWeight: '600' }],
+}
+```
+
+**SF Pro** will be used automatically on Apple devices (macOS, iOS) and falls back gracefully to system fonts on other platforms.
+
 ### Colors
 
 ```typescript
@@ -201,18 +233,6 @@ colors: {
     tertiary: '#8D8F95',    // Muted text
   },
   focus: '#8B5CF6',         // Focus ring color
-}
-```
-
-### Typography
-
-```typescript
-fontSize: {
-  hero: ['28px', { lineHeight: '1.2', fontWeight: '700' }],
-  h2: ['18px', { lineHeight: '1.3', fontWeight: '600' }],
-  body: ['15px', { lineHeight: '1.45', fontWeight: '400' }],
-  meta: ['12.5px', { lineHeight: '1.3', fontWeight: '500' }],
-  btn: ['14.5px', { lineHeight: '1.2', fontWeight: '600' }],
 }
 ```
 
@@ -238,7 +258,7 @@ The app implements three responsive breakpoints:
 - Full three-column layout
 - Fixed sidebar (260px)
 - Center feed (max 820px)
-- Right rail (320px)
+- Right rail (320px, sticky)
 
 ### Tablet (1024-1279px)
 - Sidebar remains visible
@@ -309,8 +329,10 @@ This is a static UI implementation. The following will be added in Phase 2:
 Tested and working on:
 - Chrome 90+
 - Firefox 88+
-- Safari 14+
+- Safari 14+ (with native SF Pro support)
 - Edge 90+
+
+**Note**: SF Pro will render natively on Apple devices. Other platforms will use system font fallbacks.
 
 ## 📦 Dependencies
 
@@ -342,6 +364,7 @@ Private - SPILL, Inc. © 2024
 ## 🙏 Acknowledgments
 
 - Design system by SPILL design team
+- SF Pro font by Apple Inc.
 - Built for Series A fundraising preparation
 - Focused on culture-first community values
 
