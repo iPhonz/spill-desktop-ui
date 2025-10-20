@@ -1,355 +1,248 @@
-# SPILL Desktop UI - Phase 1
+# SPILL Desktop UI
 
-> Pixel-accurate static implementation of the SPILL desktop experience
+> Culture-first social media platform with Supabase backend
 
 [![Next.js](https://img.shields.io/badge/Next.js-14+-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4+-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
-[![Storybook](https://img.shields.io/badge/Storybook-7.6+-ff4785?logo=storybook)](https://storybook.js.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-2.39+-3ECF8E?logo=supabase)](https://supabase.com/)
+[![React Query](https://img.shields.io/badge/React_Query-5.17+-FF4154?logo=react-query)](https://tanstack.com/query/latest)
 
-## Overview
+## 🎯 Project Status
 
-This is a production-ready Next.js application that implements the SPILL desktop UI with:
+**Current Version**: Phase 2 - Authentication & Core Features ✅
 
-- **Next.js 14+** with App Router and React Server Components
-- **TypeScript** for complete type safety
-- **Tailwind CSS** with custom design tokens matching SPILL's brand
-- **SF Pro** font family for authentic Apple-style typography
-- **Responsive 3-column layout** that adapts seamlessly to mobile
-- **Accessible components** with keyboard navigation and ARIA attributes
-- **Static data** (no backend integration in Phase 1)
-- **Storybook** for component documentation and isolated development
+- ✅ **Phase 1**: Static pixel-perfect UI ([View Details](#phase-1-static-ui))
+- ✅ **Phase 2**: Supabase Auth + Feed CRUD ([View Details](./PHASE2_README.md))
+- 🔜 **Phase 3**: Real-time features & advanced interactions
 
-## ✅ Features Implemented
+## 🚀 Quick Start
 
-### Layout Architecture
-- ✅ Three-column desktop layout (sidebar, feed, right rail)
-- ✅ Fixed-width left sidebar (~260px) with navigation
-- ✅ Center feed column (~760-820px) with hero banner and posts
-- ✅ Right rail (~320px) with login, up next, and trending modules
-- ✅ Responsive design with mobile drawer navigation
-- ✅ Breakpoints: ≥1280px (full), 1024-1279px (stacked), <900px (mobile)
+### Phase 2 (Current)
 
-### Components Delivered
-- ✅ **SidebarNav**: Navigation with Home, Subscriptions, Chat, Activity, Explore, Profile
-- ✅ **CreateButton**: Orange CTA button at sidebar bottom
-- ✅ **HeroBanner**: Hero section with "Get started" and "Learn more" CTAs
-- ✅ **FilterDropdownStub**: "For you" dropdown (visual only)
-- ✅ **PostCard**: Complete post with author, content, and actions
-- ✅ **PostActionsRow**: Like, comment, repost, share interactions
-- ✅ **LoginCard**: Sign-up/sign-in module
-- ✅ **UpNextList**: Reading queue with 3 articles
-- ✅ **TrendingList**: 5 trending links with "See all"
-- ✅ **Skeleton components**: Loading states for posts and cards
-- ✅ **Drawer**: Mobile navigation drawer with body scroll lock
-
-### Design System
-- ✅ Custom Tailwind tokens matching spec exactly
-- ✅ **SF Pro** font family (Text & Display variants)
-- ✅ Color palette: dark backgrounds (#0D0D0E), pink sidebar (#BE3B5E), orange accents (#FF6A00)
-- ✅ Typography: Hero (28px), H2 (18px), Body (15px), Meta (12.5px), Button (14.5px)
-- ✅ Spacing: 8pt system, consistent 16-24px padding
-- ✅ Border radius: lg (16px), md (12px), sm (10px)
-- ✅ Elevation shadows for depth
-
-### Accessibility (WCAG 2.1 AA)
-- ✅ Semantic HTML: `<nav>`, `<main>`, `<aside>`, proper heading hierarchy
-- ✅ Keyboard navigation with visible focus rings (purple #8B5CF6)
-- ✅ ARIA attributes: `aria-current`, `aria-label`, `aria-haspopup`, `aria-modal`
-- ✅ Alt text for all decorative and informative images
-- ✅ Color contrast ratios meeting standards
-- ✅ Focus management for drawer/modal interactions
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** 18.17 or later
-- **pnpm** (recommended) or npm/yarn
-
-### Installation
+Full authentication and database integration with Supabase:
 
 ```bash
-# Clone the repository
-git clone https://github.com/iPhonz/spill-desktop-ui.git
-cd spill-desktop-ui
-
-# Install dependencies with pnpm (recommended)
+# Install dependencies
 pnpm install
 
-# Or with npm
-npm install
+# Set up environment variables
+cp .env.local.example .env.local
+# Edit .env.local with your Supabase credentials
 
-# Or with yarn
-yarn install
-```
+# Run database migrations (see PHASE2_README.md)
 
-### Development Server
-
-```bash
-# Run Next.js development server
+# Start development server
 pnpm dev
-# or
-npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+**📖 [Complete Phase 2 Setup Guide](./PHASE2_README.md)**
 
-The page will auto-update as you edit files. TypeScript errors will appear in the console.
+## ✨ Features
 
-### Production Build
+### Phase 2 (Current)
 
-```bash
-# Create optimized production build
-pnpm build
+- **🔐 Authentication**
+  - Email magic link sign-in
+  - Google OAuth integration
+  - Automatic profile creation
+  - Secure session management
 
-# Start production server
-pnpm start
-```
+- **📱 Feed & Content**
+  - Real-time spill feed from Supabase
+  - Create spills (280 characters)
+  - Pagination with "Load more"
+  - Author profiles with avatars
 
-### Storybook
+- **💫 Interactions**
+  - Like/unlike with optimistic updates
+  - Bookmark spills
+  - Instant UI feedback via React Query
 
-```bash
-# Run Storybook for component development
-pnpm storybook
-```
+- **🎨 UI Components**
+  - Functional auth modals
+  - Composer modal for creating content
+  - Loading/error/empty states
+  - Accessible and responsive design
 
-Storybook will open at [http://localhost:6006](http://localhost:6006) with isolated component views.
+### Phase 1 Foundation
 
-```bash
-# Build static Storybook
-pnpm build-storybook
-```
+- **🎨 Design System**
+  - SF Pro typography
+  - Custom Tailwind tokens
+  - Dark theme (#0D0D0E)
+  - Pink sidebar (#BE3B5E)
+  - Orange accents (#FF6A00)
 
-### Linting
+- **📐 Layout**
+  - Three-column desktop layout
+  - Responsive mobile design
+  - Fixed sidebar navigation
+  - Sticky right rail
 
-```bash
-# Run ESLint
-pnpm lint
-```
+- **♿ Accessibility**
+  - WCAG 2.1 AA compliant
+  - Keyboard navigation
+  - ARIA attributes
+  - Screen reader support
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|----------|-----------|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS 3.4 |
+| Database | Supabase (PostgreSQL) |
+| Authentication | Supabase Auth |
+| State Management | TanStack Query (React Query) |
+| UI Components | React 18 |
+| Icons | Lucide React |
+| Typography | SF Pro |
+| Date Handling | date-fns |
 
 ## 📁 Project Structure
 
 ```
 spill-desktop-ui/
 ├── app/
-│   ├── layout.tsx          # Root layout with SF Pro font
-│   ├── page.tsx            # Main desktop page component
-│   └── globals.css         # Global styles and CSS variables
+│   ├── layout.tsx              # Root layout with providers
+│   ├── page.tsx                # Main feed page
+│   ├── globals.css             # Global styles
+│   └── auth/callback/route.ts  # Auth callback handler
 ├── components/
-│   ├── sidebar/
-│   │   ├── SidebarNav.tsx      # Main navigation component
-│   │   └── CreateButton.tsx    # Orange CTA button
-│   ├── hero/
-│   │   ├── HeroBanner.tsx      # Hero banner with CTAs
-│   │   └── FilterDropdownStub.tsx  # "For you" filter (stub)
+│   ├── auth/
+│   │   └── AuthModal.tsx       # Sign in/sign up modal
+│   ├── composer/
+│   │   └── ComposerModal.tsx   # Create spill modal
 │   ├── feed/
-│   │   ├── PostCard.tsx        # Individual post component
-│   │   ├── PostActionsRow.tsx  # Like/comment/share actions
-│   │   └── PostSkeleton.tsx    # Loading skeleton
+│   │   ├── SpillCard.tsx       # Individual spill with interactions
+│   │   └── PostSkeleton.tsx    # Loading state
+│   ├── sidebar/
+│   │   ├── SidebarNav.tsx      # Navigation
+│   │   └── CreateButton.tsx    # Composer trigger
 │   ├── rightrail/
-│   │   ├── LoginCard.tsx       # Login/signup card
-│   │   ├── UpNextList.tsx      # Reading queue list
-│   │   ├── TrendingList.tsx    # Trending topics list
-│   │   └── RightRailCard.tsx   # Generic right rail card
-│   └── common/
-│       ├── Avatar.tsx          # User avatar component
-│       ├── IconButton.tsx      # Reusable icon button
-│       ├── Card.tsx            # Base card component
-│       ├── Divider.tsx         # Horizontal divider
-│       └── Drawer.tsx          # Mobile navigation drawer
-├── data/
-│   ├── posts.ts            # Sample post data (4 posts)
-│   ├── upNext.ts           # Up next articles (3 items)
-│   └── trending.ts         # Trending links (5 items)
+│   │   ├── LoginCard.tsx       # Auth status & actions
+│   │   ├── UpNextList.tsx      # Reading queue
+│   │   └── TrendingList.tsx    # Trending topics
+│   └── common/                 # Reusable components
+├── contexts/
+│   └── AuthContext.tsx         # Auth state management
 ├── lib/
-│   └── types.ts            # TypeScript type definitions
-├── stories/
-│   ├── PostCard.stories.tsx    # PostCard Storybook stories
-│   ├── SidebarNav.stories.tsx  # SidebarNav stories
-│   └── RightRail.stories.tsx   # Right rail component stories
-├── .storybook/
-│   ├── main.ts             # Storybook configuration
-│   └── preview.ts          # Global Storybook settings
-├── tailwind.config.ts      # Tailwind + design tokens
-├── tsconfig.json           # TypeScript configuration
-├── next.config.js          # Next.js configuration
-├── postcss.config.js       # PostCSS configuration
-├── package.json            # Dependencies and scripts
-└── README.md               # This file
+│   ├── supabase/
+│   │   ├── client.ts           # Supabase client
+│   │   ├── server.ts           # Server-side client
+│   │   └── types.ts            # Database types
+│   ├── hooks/
+│   │   ├── useFeed.ts          # Fetch spills
+│   │   ├── useCreateSpill.ts   # Create spill
+│   │   ├── useToggleLike.ts    # Like/unlike
+│   │   └── useToggleBookmark.ts # Bookmark actions
+│   └── providers/
+│       └── QueryProvider.tsx    # React Query setup
+├── supabase/
+│   └── migrations/              # Database schema
+├── data/                        # Static seed data
+└── stories/                     # Storybook stories
+```
+
+## 🗄️ Database Schema
+
+### Core Tables
+
+- **profiles**: User profiles with handle, display name, avatar
+- **spills**: User posts (max 280 characters)
+- **spill_likes**: Like relationships
+- **bookmarks**: Saved spills
+
+### Security
+
+- Row Level Security (RLS) enabled on all tables
+- Public read access
+- Authenticated write access
+- Owner-only modifications
+
+**📖 [Full Database Schema](./PHASE2_README.md#-database-schema)**
+
+## 📝 Environment Variables
+
+Create a `.env.local` file:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+**📖 [Setup Guide](./PHASE2_README.md#-getting-started)**
+
+## 🧪 Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run development server
+pnpm dev
+
+# Run Storybook (Phase 1 components)
+pnpm storybook
+
+# Build for production
+pnpm build
+
+# Run production build
+pnpm start
+
+# Lint code
+pnpm lint
 ```
 
 ## 🎨 Design Tokens
 
-All design tokens are configured in `tailwind.config.ts` and match the SPILL design system exactly:
-
-### Typography
-
-The app uses **SF Pro** font family for a clean, modern Apple-style aesthetic:
-
-```typescript
-fontFamily: {
-  sans: [
-    'SF Pro Text',
-    'SF Pro Display',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Roboto',
-    'Helvetica Neue',
-    'Arial',
-    'sans-serif'
-  ],
-}
-
-fontSize: {
-  hero: ['28px', { lineHeight: '1.2', fontWeight: '700' }],
-  h2: ['18px', { lineHeight: '1.3', fontWeight: '600' }],
-  body: ['15px', { lineHeight: '1.45', fontWeight: '400' }],
-  meta: ['12.5px', { lineHeight: '1.3', fontWeight: '500' }],
-  btn: ['14.5px', { lineHeight: '1.2', fontWeight: '600' }],
-}
-```
-
-**SF Pro** will be used automatically on Apple devices (macOS, iOS) and falls back gracefully to system fonts on other platforms.
-
 ### Colors
+- **Background**: `#0D0D0E` (app), `#1B1C1E` (panels)
+- **Sidebar**: `#BE3B5E` (pink)
+- **Accent**: `#FF6A00` (orange CTAs)
+- **Text**: `#F5F5F6` (primary), `#BABBC0` (secondary), `#8D8F95` (tertiary)
 
-```typescript
-colors: {
-  bg: { app: '#0D0D0E' },                    // Main background
-  panel: { base: '#1B1C1E', elev: '#212225' }, // Card backgrounds
-  line: { divider: '#2A2B2E', border: '#2A2B2E' }, // Borders
-  sidebar: { bg: '#BE3B5E', icon: '#FFFFFF' }, // Pink sidebar
-  accent: {
-    orange: '#FF6A00',      // CTAs, verify badge
-    yellow: '#FFDA3E',      // Future badges
-    primary: '#3A1B49',     // Alternative CTA
-  },
-  chip: { bg: '#2B2C2F', text: '#D9D9DC' }, // Chip styling
-  text: {
-    primary: '#F5F5F6',     // Main text
-    secondary: '#BABBC0',   // Secondary text
-    tertiary: '#8D8F95',    // Muted text
-  },
-  focus: '#8B5CF6',         // Focus ring color
-}
-```
+### Typography (SF Pro)
+- **Hero**: 28px, Bold (700)
+- **H2**: 18px, Semibold (600)
+- **Body**: 15px, Regular (400)
+- **Meta**: 12.5px, Medium (500)
+- **Button**: 14.5px, Semibold (600)
 
-### Spacing & Borders
+### Spacing
+- 8pt grid system
+- Card padding: 16-24px
+- Vertical gaps: 16-20px
 
-```typescript
-borderRadius: {
-  lg: '16px',   // Large cards
-  md: '12px',   // Standard cards
-  sm: '10px',   // Small elements
-}
+**📖 [Full Design System](./PHASE2_README.md#-design-tokens)**
 
-boxShadow: {
-  elev: '0 8px 24px rgba(0,0,0,0.35)', // Elevation shadow
-}
-```
+## 🔒 Security
 
-## 📱 Responsive Behavior
-
-The app implements three responsive breakpoints:
-
-### Desktop (≥1280px)
-- Full three-column layout
-- Fixed sidebar (260px)
-- Center feed (max 820px)
-- Right rail (320px, sticky)
-
-### Tablet (1024-1279px)
-- Sidebar remains visible
-- Right rail stacks below center feed
-- Full-width layout
-
-### Mobile (<900px)
-- Sidebar collapses to hamburger menu
-- Drawer navigation with scroll lock
-- Single-column stacked layout
-- 15px body text maintained
-
-## ♿ Accessibility Features
-
-### Semantic Structure
-- Proper heading hierarchy (h1 → h2 → h3)
-- Landmark regions: `<nav>`, `<main>`, `<aside>`
-- Lists for navigation and trending items
-
-### Keyboard Navigation
-- All interactive elements are keyboard accessible
-- Visible focus indicators (2px purple outline)
-- Logical tab order through the page
-- Escape key closes mobile drawer
-
-### ARIA Attributes
-- `aria-current="page"` for active nav item
-- `aria-label` for icon-only buttons
-- `aria-haspopup="menu"` for dropdown stub
-- `aria-modal="true"` for drawer overlay
-
-### Screen Reader Support
-- Alt text for avatars and thumbnails
-- Hidden decorative elements (`aria-hidden="true"`)
-- Semantic separators with `role="separator"`
-
-## 🧪 Testing with Storybook
-
-View isolated components with various states:
-
-```bash
-pnpm storybook
-```
-
-Available stories:
-- **PostCard**: Default, Unverified User, Short Content
-- **SidebarNav**: Desktop, Mobile
-- **LoginCard**: Default state
-- **UpNextList**: With items, Empty state
-- **TrendingList**: With links, Empty state
-
-## 🚫 What's NOT Included (Phase 1 Scope)
-
-This is a static UI implementation. The following will be added in Phase 2:
-
-- ❌ Backend API integration
-- ❌ Supabase authentication
-- ❌ Real-time data updates
-- ❌ User interactions (functional likes, comments, etc.)
-- ❌ Routing between pages
-- ❌ State management (Redux, Zustand, etc.)
-- ❌ Image uploads
-- ❌ Infinite scroll
-- ❌ Search functionality
+- Environment variables for all secrets
+- Row Level Security at database level
+- Secure authentication via Supabase
+- No sensitive data in client code
+- HTTPS-only in production
 
 ## 🌐 Browser Support
 
-Tested and working on:
 - Chrome 90+
 - Firefox 88+
-- Safari 14+ (with native SF Pro support)
+- Safari 14+
 - Edge 90+
 
-**Note**: SF Pro will render natively on Apple devices. Other platforms will use system font fallbacks.
+## 📚 Documentation
 
-## 📦 Dependencies
-
-### Core
-- `next` ^14.2.0 - React framework
-- `react` ^18.3.0 - UI library
-- `lucide-react` ^0.263.1 - Icon library
-
-### Dev Dependencies
-- `typescript` ^5 - Type checking
-- `tailwindcss` ^3.4.0 - Styling
-- `@storybook/nextjs` ^7.6.0 - Component documentation
-- `eslint` ^8 - Code linting
+- **[Phase 2 Setup Guide](./PHASE2_README.md)** - Complete Supabase setup and features
+- **[Supabase Docs](https://supabase.com/docs)** - Database and auth documentation
+- **[Next.js Docs](https://nextjs.org/docs)** - Framework documentation
+- **[React Query Docs](https://tanstack.com/query/latest)** - State management guide
 
 ## 🤝 Contributing
-
-This is Phase 1 of the SPILL desktop UI. For Phase 2 features or improvements:
 
 1. Create a feature branch
 2. Make your changes
@@ -359,17 +252,47 @@ This is Phase 1 of the SPILL desktop UI. For Phase 2 features or improvements:
 
 ## 📄 License
 
-Private - SPILL, Inc. © 2024
+Private - SPILL, Inc. © 2024-2025
 
 ## 🙏 Acknowledgments
 
 - Design system by SPILL design team
 - SF Pro font by Apple Inc.
-- Built for Series A fundraising preparation
-- Focused on culture-first community values
+- Built for Series A fundraising
+- Culture-first community values
+
+---
+
+## Phase History
+
+### Phase 1: Static UI ✅
+- Pixel-perfect implementation of SPILL desktop design
+- Responsive three-column layout
+- Accessible components with keyboard navigation
+- Storybook component documentation
+- **[View Phase 1 Details](#phase-1-static-ui)**
+
+### Phase 2: Authentication & Core Features ✅
+- Supabase authentication (email + Google OAuth)
+- Feed CRUD with optimistic updates
+- Like and bookmark functionality
+- Profile management
+- Loading/error/empty states
+- **[View Phase 2 Details](./PHASE2_README.md)**
+
+### Phase 3: Coming Soon 🔜
+- Real-time updates via Supabase Realtime
+- Comments system
+- User profile pages
+- Image uploads
+- Infinite scroll
+- Search functionality
+- Notifications
 
 ---
 
 **Built with ❤️ for SPILL** - The app for independent voices
+
+For setup help, see [PHASE2_README.md](./PHASE2_README.md)
 
 For questions or support, contact the engineering team.
